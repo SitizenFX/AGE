@@ -42,7 +42,7 @@ namespace EMStudio
 
         // create the main layout
         m_mainLayout = new QVBoxLayout();
-        m_mainLayout->setMargin(2);
+        m_mainLayout->setContentsMargins(2, 2, 2, 2);
         m_mainLayout->setSpacing(0);
         m_mainLayout->setAlignment(Qt::AlignTop);
 
@@ -77,21 +77,21 @@ namespace EMStudio
         QWidget* contentsWidget = new QWidget();
         QVBoxLayout* contentsLayout = new QVBoxLayout();
         contentsLayout->setSpacing(1);
-        contentsLayout->setMargin(0);
+        contentsLayout->setContentsMargins(0, 0, 0, 0);
         contentsWidget->setLayout(contentsLayout);
 
         m_nodeNamesCheckBox = new QCheckBox("Show Node Names");
         m_nodeNamesCheckBox->setChecked(true);
         m_nodeNamesCheckBox->setCheckable(true);
         AzQtComponents::CheckBox::applyToggleSwitchStyle(m_nodeNamesCheckBox);
-        connect(m_nodeNamesCheckBox, &QCheckBox::stateChanged, this, &TrackHeaderWidget::OnCheckBox);
+        connect(m_nodeNamesCheckBox, &QCheckBox::checkStateChanged, this, &TrackHeaderWidget::OnCheckBox);
         contentsLayout->addWidget(m_nodeNamesCheckBox);
 
         m_motionFilesCheckBox = new QCheckBox("Show Motion Files");
         m_motionFilesCheckBox->setChecked(false);
         m_motionFilesCheckBox->setCheckable(true);
         AzQtComponents::CheckBox::applyToggleSwitchStyle(m_motionFilesCheckBox);
-        connect(m_motionFilesCheckBox, &QCheckBox::stateChanged, this, &TrackHeaderWidget::OnCheckBox);
+        connect(m_motionFilesCheckBox, &QCheckBox::checkStateChanged, this, &TrackHeaderWidget::OnCheckBox);
         contentsLayout->addWidget(m_motionFilesCheckBox);
 
         QHBoxLayout* comboLayout = new QHBoxLayout();
@@ -180,7 +180,7 @@ namespace EMStudio
 
         m_trackWidget = new QWidget();
         m_trackLayout = new QVBoxLayout();
-        m_trackLayout->setMargin(0);
+        m_trackLayout->setContentsMargins(0, 0, 0, 0);
         m_trackLayout->setSpacing(1);
 
         const size_t numTracks = m_plugin->m_tracks.size();
@@ -212,7 +212,7 @@ namespace EMStudio
         m_plugin = parentPlugin;
 
         QHBoxLayout* mainLayout = new QHBoxLayout();
-        mainLayout->setMargin(0);
+        mainLayout->setContentsMargins(0, 0, 0, 0);
         mainLayout->setSpacing(0);
 
         m_headerTrackWidget  = trackHeaderWidget;
@@ -250,7 +250,7 @@ namespace EMStudio
 
         connect(m_nameEdit, &QLineEdit::editingFinished, this, &HeaderTrackWidget::NameChanged);
         connect(m_nameEdit, &QLineEdit::textEdited, this, &HeaderTrackWidget::NameEdited);
-        connect(m_enabledCheckbox, &QCheckBox::stateChanged, this, &HeaderTrackWidget::EnabledCheckBoxChanged);
+        connect(m_enabledCheckbox, &QCheckBox::checkStateChanged, this, &HeaderTrackWidget::EnabledCheckBoxChanged);
 
         setContextMenuPolicy(Qt::CustomContextMenu);
         connect(this, &QWidget::customContextMenuRequested, this, [this](const QPoint& pos)
@@ -341,7 +341,7 @@ namespace EMStudio
     }
 
 
-    void HeaderTrackWidget::EnabledCheckBoxChanged(int state)
+    void HeaderTrackWidget::EnabledCheckBoxChanged(Qt::CheckState state)
     {
         m_plugin->SetRedrawFlag();
 
@@ -414,7 +414,7 @@ namespace EMStudio
 
 
     // a checkbox state changed
-    void TrackHeaderWidget::OnCheckBox(int state)
+    void TrackHeaderWidget::OnCheckBox(Qt::CheckState state)
     {
         MCORE_UNUSED(state);
         m_plugin->SetRedrawFlag();

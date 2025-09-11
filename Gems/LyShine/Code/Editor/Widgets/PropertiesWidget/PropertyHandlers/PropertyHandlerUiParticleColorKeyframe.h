@@ -16,7 +16,6 @@
 #include <AzToolsFramework/UI/PropertyEditor/PropertyEnumComboBoxCtrl.hxx>
 
 #include <LyShine/Bus/UiParticleEmitterBus.h>
-#endif
 
 class PropertyUiParticleColorKeyframeCtrl : public QWidget
 {

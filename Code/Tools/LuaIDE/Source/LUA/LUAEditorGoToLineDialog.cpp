@@ -13,8 +13,8 @@
 #include <QDialogButtonBox>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 namespace LUAEditor
 {
@@ -28,8 +28,8 @@ namespace LUAEditor
         m_gui->setupUi(this);
         this->setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
 
-        const QRegExp rx(GotoLineDialogRegEx);
-        QRegExpValidator* const validator = new QRegExpValidator(rx, this);
+        const QRegularExpression rx(GotoLineDialogRegEx);
+        QRegularExpressionValidator* const validator = new QRegularExpressionValidator(rx, this);
         m_gui->lineNumber->setValidator(validator);
 
         connect(m_gui->lineNumber, &QLineEdit::textChanged, this, &LUAEditorGoToLineDialog::handleLineNumberInput);

@@ -24,13 +24,11 @@
 #include <QWindow>
 #include <QScreen>
 #include <QCloseEvent>
-#include <QDesktopWidget>
 #include <QDialog>
 #include <QStyleOption>
 #include <QScopedValueRollback>
 #include <QStyle>
 #include <QLayout>
-#include <QtGui/private/qhighdpiscaling_p.h>
 
 #ifdef Q_OS_WIN
 #endif
@@ -100,7 +98,7 @@ namespace AzQtComponents
                 // the screen because since floating windows are frameless, on
                 // Windows 10 they end up taking up the entire screen when maximized
                 // instead of respecting the available space (e.g. taskbar)
-                window->setGeometry(QApplication::desktop()->availableGeometry(window));
+                window->setGeometry(QApplication::primaryScreen()->availableGeometry());
             }
             
 
@@ -483,8 +481,7 @@ namespace AzQtComponents
 
     static void centerOnScreen(WindowDecorationWrapper* window)
     {
-        const QDesktopWidget* desktop = QApplication::desktop();
-        QRect availableGeometry = desktop->availableGeometry(window);
+        QRect availableGeometry = QApplication::primaryScreen()->availableGeometry();
         QRect alignedRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, window->size(), availableGeometry);
 
         window->setGeometry(alignedRect);
@@ -514,7 +511,7 @@ namespace AzQtComponents
         QFrame::showEvent(ev);
     }
 
-    bool WindowDecorationWrapper::nativeEvent(const QByteArray& eventType, void* message, long* result)
+    bool WindowDecorationWrapper::nativeEvent(const QByteArray& eventType, void* message, qintptr* result)
     {
         return handleNativeEvent(eventType, message, result, this);
     }
@@ -531,7 +528,7 @@ namespace AzQtComponents
     }
 
     /* static */
-    bool WindowDecorationWrapper::handleNativeEvent(const QByteArray& eventType, void* message, long* result, const QWidget* widget)
+    bool WindowDecorationWrapper::handleNativeEvent(const QByteArray& eventType, void* message, qintptr* result, const QWidget* widget)
     {
 #ifdef Q_OS_WIN
         MSG* msg = static_cast<MSG*>(message);
@@ -564,7 +561,7 @@ namespace AzQtComponents
                         const short global_x = static_cast<short>(LOWORD(msg->lParam));
                         const short global_y = static_cast<short>(HIWORD(msg->lParam));
 
-                        const QPoint globalPos = QHighDpi::fromNativePixels(QPoint(global_x, global_y), widget->window()->windowHandle());
+                        const QPoint globalPos = QPoint(global_x, global_y);
                         const QPoint local = titleBar->mapFromGlobal(globalPos);
                         if (titleBar->draggableRect().contains(local))
                         {
@@ -607,7 +604,7 @@ namespace AzQtComponents
             DefWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
 
             const QScreen *screen = w->screen();
-            const QRect availableGeometry = QHighDpi::toNativePixels(screen->availableGeometry(), screen);
+            const QRect availableGeometry = screen->availableGeometry();
             auto mmi = reinterpret_cast<MINMAXINFO*>(msg->lParam);
             mmi->ptMaxSize.y = availableGeometry.height();
             mmi->ptMaxSize.x = availableGeometry.width();

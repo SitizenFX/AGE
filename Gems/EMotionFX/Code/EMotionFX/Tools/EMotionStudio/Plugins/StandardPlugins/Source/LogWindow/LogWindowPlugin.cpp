@@ -8,7 +8,6 @@
 
 #include "LogWindowPlugin.h"
 #include "LogWindowCallback.h"
-#include <AzQtComponents/Components/FilteredSearchWidget.h>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -56,7 +55,7 @@ namespace EMStudio
         // create the layout
         QVBoxLayout* windowWidgetLayout = new QVBoxLayout();
         windowWidgetLayout->setSpacing(3);
-        windowWidgetLayout->setMargin(3);
+        windowWidgetLayout->setContentsMargins(3, 3, 3, 3);
 
         // create the find widget
         m_searchWidget = new AzQtComponents::FilteredSearchWidget(windowWidget);

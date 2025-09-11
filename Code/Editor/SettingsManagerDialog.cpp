@@ -16,6 +16,8 @@
 
 // AzToolsFramework
 #include <AzToolsFramework/API/ViewPaneOptions.h>
+#include <AzCore/std/utility/pair.h>
+#include <AzCore/std/containers/map.h>
 
 // Editor
 #include "SettingsManager.h"
@@ -63,7 +65,6 @@ const GUID& CSettingsManagerDialog::GetClassID()
 
     return guid;
 }
-
 
 void CSettingsManagerDialog::RegisterViewClass()
 {
@@ -189,8 +190,8 @@ void CSettingsManagerDialog::ImportLayouts(QString file, const QStringList& layo
 
         for (const QString& layoutStr : layouts)
         {
-            auto it = std::find_if(allToolNames.begin(), allToolNames.end(),
-                            [&](const std::pair<QString, QString>& v)
+            auto it = AZStd::find_if(allToolNames.begin(), allToolNames.end(),
+                            [&](const AZStd::pair<QString, QString>& v)
                             {
                                 return layoutStr == v.second;
                             });

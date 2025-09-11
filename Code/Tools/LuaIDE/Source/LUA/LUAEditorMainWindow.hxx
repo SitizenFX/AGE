@@ -31,7 +31,7 @@
 
 class QMenu;
 class QAction;
-class QToolbar;
+class QToolBar;
 class QDockWidget;
 class QSettings;
 class QStandardItemModel;

@@ -538,4 +538,3 @@ void HierarchyMenu::EditorOnly(HierarchyWidget* hierarchy, QTreeWidgetItemRawPtr
         addAction(action);
     }
 }
-

@@ -16,6 +16,8 @@
 
 #include <QWidget>
 
+#include <QWidget>
+
 class PivotPresetsWidget;
 
 class PropertyPivotCtrl : public QWidget

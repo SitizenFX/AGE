@@ -16,7 +16,6 @@
 
 namespace AzQtComponents
 {
-    struct SearchTypeFilter;
     class FilteredSearchWidget;
 }
 

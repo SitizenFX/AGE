@@ -15,7 +15,6 @@
 #include <AzToolsFramework/UI/PropertyEditor/PropertyEditorAPI.h>
 
 #include <QWidget>
-#endif
 
 class QComboBox;
 

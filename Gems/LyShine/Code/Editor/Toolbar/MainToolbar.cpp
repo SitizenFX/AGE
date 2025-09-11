@@ -58,4 +58,3 @@ void MainToolbar::SetZoomPercent(float zoomPercent)
     m_zoomFactorSpinBox->setValue(zoomPercent);
     m_zoomFactorSpinBox->blockSignals(false);
 }
-

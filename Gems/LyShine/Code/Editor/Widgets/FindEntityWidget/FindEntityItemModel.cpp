@@ -252,4 +252,3 @@ bool FindEntityItemModel::IsMatch(const AZ::EntityId& entityId) const
     auto matchItr = m_entityMatchState.find(entityId);
     return matchItr == m_entityMatchState.end() || matchItr->second;
 }
-

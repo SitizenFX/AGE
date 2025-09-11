@@ -43,7 +43,6 @@
 #include <QTreeWidget>
 #include <QToolBar>
 #include <QVBoxLayout>
-#include <QtWidgets/private/qabstractitemview_p.h>
 
 namespace EMStudio
 {
@@ -211,7 +210,7 @@ namespace EMStudio
         m_verticalLayout = new QVBoxLayout();
         m_verticalLayout->setObjectName("StyledWidget");
         m_verticalLayout->setSpacing(2);
-        m_verticalLayout->setMargin(0);
+        m_verticalLayout->setContentsMargins(0, 0, 0, 0);
         m_verticalLayout->setAlignment(Qt::AlignTop);
         m_verticalLayout->addWidget(toolBar);
         m_verticalLayout->addWidget(m_treeWidget);
@@ -1550,9 +1549,8 @@ namespace EMStudio
     }
 
     class ParameterWindowTreeWidgetPrivate
-        : public QAbstractItemViewPrivate
+        : public QAbstractItemView
     {
-        Q_DECLARE_PUBLIC(ParameterWindowTreeWidget);
     };
 
     ParameterWindowTreeWidget::ParameterWindowTreeWidget(QWidget* parent)
@@ -1593,13 +1591,11 @@ namespace EMStudio
         emit DragEnded();
     }
 
-    void ParameterWindowTreeWidget::dropEvent(QDropEvent* event)
+    void ParameterWindowTreeWidget::dropEvent(QDropEvent*)
     {
-        Q_D(ParameterWindowTreeWidget);
-
-        QModelIndex topIndex;
-        int col = -1;
-        int row = -1;
+        //QModelIndex topIndex;
+       // int col = -1;
+       // int row = -1;
 
         // Getting the target drop index from the private implementation
         // of QAbstractItemView
@@ -1610,6 +1606,8 @@ namespace EMStudio
         // else
         //     // place at row, col in drop index
 
+        // #QT6_TODO
+        /*
         if (d->dropOn(event, &row, &col, &topIndex))
         {
             QTreeWidgetItem* item = itemFromIndex(topIndex);
@@ -1642,6 +1640,7 @@ namespace EMStudio
                 return;
             }
         }
+        */
     }
 
 } // namespace EMStudio

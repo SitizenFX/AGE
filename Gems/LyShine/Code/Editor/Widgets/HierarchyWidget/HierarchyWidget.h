@@ -19,7 +19,6 @@
 #include <QAbstractItemView>
 #include <QStringList>
 #include <QTreeWidget>
-#endif
 
 class EditorWindow;
 class HierarchyItem;

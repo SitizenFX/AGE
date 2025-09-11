@@ -180,4 +180,3 @@ void PreviewAnimationList::DoActionOnSelectedAnimations(Action action)
         }
     }
 }
-

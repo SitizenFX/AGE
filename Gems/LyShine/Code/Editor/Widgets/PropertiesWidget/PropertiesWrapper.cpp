@@ -148,4 +148,3 @@ void PropertiesWrapper::DropMimeDataAssets(const QMimeData* mimeData)
 
     ComponentHelpers::AddComponentsWithAssetToSelectedEntities(componentAssetPairs);
 }
-

@@ -148,4 +148,3 @@ void CoordinateSystemToolbarSection::UpdateCanvasSnapEnabled()
     UiEditorCanvasBus::Event(m_editorWindow->GetCanvas(), &UiEditorCanvasBus::Events::SetIsSnapEnabled, checked);
     CanvasHelpers::EndUndoableCanvasChange(m_editorWindow, "toggle snapping", canvasUndoXml);
 }
-

@@ -49,7 +49,7 @@ namespace ScriptCanvasEditor
     private:
 
         QString m_filter;
-        QRegExp m_regex;
+        QRegularExpression m_regex;
 
         ScriptCanvas::NodeTypeIdentifier m_nodeIdentifier;
     };

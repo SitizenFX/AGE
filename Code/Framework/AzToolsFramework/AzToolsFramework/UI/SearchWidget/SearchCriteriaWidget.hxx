@@ -59,7 +59,7 @@ Q_SIGNALS:
 
     protected:
         void mouseReleaseEvent(QMouseEvent* event) override;
-        void enterEvent(QEvent* event) override;
+        void enterEvent(QEnterEvent* event) override;
         void leaveEvent(QEvent* event) override;
 
         QString m_tagText;
@@ -146,5 +146,5 @@ Q_SIGNALS:
         QString                m_defaultTag;
     };
 
-    using FilterByCategoryMap = AZStd::unordered_map<AZStd::string, QRegExp>;
+    using FilterByCategoryMap = AZStd::unordered_map<AZStd::string, QRegularExpression>;
 } // namespace AzToolsFramework

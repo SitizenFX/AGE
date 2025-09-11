@@ -68,11 +68,7 @@ AZ_PUSH_DISABLE_WARNING(4251, "-Wunknown-warning-option") // 4251: class '...' n
 #include <QTableView>
 #include <QTextEdit>
 #include <QToolButton>
-#include <QtGui/private/qscreen_p.h>
-#include <QtWidgets/private/qstylesheetstyle_p.h>
 AZ_POP_DISABLE_WARNING
-
-#include <QtWidgets/private/qstylehelper_p.h>
 
 #include <limits>
 #include <QListWidget>
@@ -638,7 +634,8 @@ namespace AzQtComponents
                 // If you really don't want this, add the g_treeViewDisableDefaultArrorPainting class to your object.
                 // I.e. Style::addClass(aQTreeView, g_treeViewDisableDefaultArrorPainting);
 #if !defined(AZ_PLATFORM_LINUX)
-
+                // #QT6_TODO
+                /*
                 if (qobject_cast<const QTreeView*>(widget) && !hasClass(widget, g_treeViewDisableDefaultArrorPainting))
                 {
                     QStyleSheetStyle* styleSheetStyle = qobject_cast<QStyleSheetStyle*>(baseStyle());
@@ -653,6 +650,7 @@ namespace AzQtComponents
                         }
                     }
                 }
+                */
 #endif // !defined(AZ_PLATFORM_LINUX)
             }
             break;
@@ -1103,6 +1101,8 @@ namespace AzQtComponents
                 break;
             }
 
+            // #QT6_TODO
+            /*
             case QStyle::PM_MenuHPlacementOffset:
             {
                 const int hOffset = Menu::horizontalShadowMargin(this, option, widget, m_data->menuConfig);
@@ -1122,6 +1122,7 @@ namespace AzQtComponents
                 }
                 break;
             }
+            */
 
             case QStyle::PM_MenuButtonIndicator:
             {
@@ -1150,26 +1151,7 @@ namespace AzQtComponents
 
             case QStyle::PM_ToolBarExtensionExtent:
             {
-                const QPoint wPos = widget->pos();
-                const QPoint gPos = widget->mapToGlobal(wPos);
-                int retval{ 12 };
-
-                const QScreen* thisScreen = QGuiApplication::screenAt(gPos);
-                if (!thisScreen)
-                {
-                    thisScreen = QGuiApplication::primaryScreen();
-                }
-                if (thisScreen)
-                {
-                    // We have to do this as the KDAB Dpi functions return a strange rounded value
-                    // that means dpiScaled is always returned 12
-                    const qreal dpi = thisScreen->handle()->logicalDpi().first;
-                    if (dpi > 0)
-                    {
-                        retval = int(QStyleHelper::dpiScaled(12, dpi));
-                    }
-                }
-                return retval;
+                return 12;
             }
 
             default:

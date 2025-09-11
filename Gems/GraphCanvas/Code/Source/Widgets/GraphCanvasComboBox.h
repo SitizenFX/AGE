@@ -51,7 +51,7 @@ namespace GraphCanvas
 
     private:
         QString m_filter;
-        QRegExp m_testRegex;
+        QRegularExpression m_testRegex;
     };
 
     class GraphCanvasComboBoxMenu

@@ -25,4 +25,3 @@ bool FindEntitySortFilterProxyModel::filterAcceptsRow(int sourceRow, const QMode
     QVariant visibilityData = sourceModel()->data(index, FindEntityItemModel::VisibilityRole);
     return visibilityData.isValid() ? visibilityData.toBool() : true;
 }
-

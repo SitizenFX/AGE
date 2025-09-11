@@ -9,7 +9,7 @@
 
 #include <QCompleter>
 #include <QAbstractItemModel>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 #include <QSortFilterProxyModel>
 #include <QTreeView>

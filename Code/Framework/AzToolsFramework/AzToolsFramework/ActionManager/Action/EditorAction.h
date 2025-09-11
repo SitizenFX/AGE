@@ -16,6 +16,7 @@
 #include <AzToolsFramework/ActionManager/Action/ActionManagerInterface.h>
 
 #include <QIcon>
+#include <QObject>
 
 class QAction;
 

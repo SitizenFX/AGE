@@ -8,13 +8,16 @@
 
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <GemCatalog/GemInfo.h>
 #include <TagWidget.h>
+#include <AzCore/std/containers/unordered_map.h>
+#include <AzCore/std/containers/unordered_set.h>
+#include <AzQtComponents/Utilities/QtHash.h>
+
 #include <QAbstractItemModel>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
-#endif
+#include <QString>
 
 namespace O3DE::ProjectManager
 {
@@ -115,15 +118,15 @@ namespace O3DE::ProjectManager
         void OnRowsRemoved(const QModelIndex& parent, int first, int last);
 
     private:
-        void GetAllDependingGems(const QModelIndex& modelIndex, QSet<QPersistentModelIndex>& inOutGems);
+        void GetAllDependingGems(const QModelIndex& modelIndex, AZStd::unordered_set<QPersistentModelIndex>& inOutGems);
         QStringList GetDependingGems(const QModelIndex& modelIndex);
         QString GetMostCompatibleVersion(const QModelIndex& modelIndex); 
         bool VersionIsCompatible(const QModelIndex& modelIndex, const QString& version); 
         bool ShouldUpdateItemDataFromGemInfo(const QModelIndex& modelIndex, const GemInfo& gemInfo);
 
-        QHash<QString, QPersistentModelIndex> m_nameToIndexMap;
+        AZStd::unordered_map<QString, QPersistentModelIndex> m_nameToIndexMap;
         QItemSelectionModel* m_selectionModel = nullptr;
-        QHash<QString, QSet<QPersistentModelIndex>> m_gemDependencyMap;
-        QHash<QString, QSet<QPersistentModelIndex>> m_gemReverseDependencyMap;
+        AZStd::unordered_map<QString, AZStd::unordered_set<QPersistentModelIndex>> m_gemDependencyMap;
+        AZStd::unordered_map<QString, AZStd::unordered_set<QPersistentModelIndex>> m_gemReverseDependencyMap;
     };
 } // namespace O3DE::ProjectManager

@@ -102,4 +102,3 @@ QSize PreviewActionLog::sizeHint() const
 {
     return QSize(300, 100);
 }
-

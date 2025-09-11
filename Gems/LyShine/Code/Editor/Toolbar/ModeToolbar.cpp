@@ -105,4 +105,3 @@ void ModeToolbar::AddModes(EditorWindow* parent)
 
     addActions(m_group->actions());
 }
-

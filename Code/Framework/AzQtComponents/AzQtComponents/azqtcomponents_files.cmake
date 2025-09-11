@@ -276,7 +276,7 @@ set(FILES
     Components/Widgets/ColorPicker/Swatch.cpp
     Components/Widgets/ColorPicker/ColorWarning.h
     Components/Widgets/ColorPicker/ColorWarning.cpp
-    Images/resources.qrc
+    Images/img_resources.qrc
     PropertyInput/PropertyInputWidgets.h
     PropertyInput/PropertyInputWidgets.cpp
     Utilities/AutoSettingsGroup.h
@@ -290,6 +290,7 @@ set(FILES
     Utilities/MouseHider.h
     Utilities/PixmapScaleUtilities.cpp
     Utilities/PixmapScaleUtilities.h
+    Utilities/QtHash.h
     Utilities/QtPluginPaths.cpp
     Utilities/QtPluginPaths.h
     Utilities/QtWindowUtilities.cpp

@@ -9,15 +9,14 @@
 
 #pragma once
 
+#include "PropertyEditorAPI.h"
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
-
-#if !defined(Q_MOC_RUN)
 #include <AzCore/base.h>
 #include <AzCore/Memory/SystemAllocator.h>
-#include <QtWidgets/QWidget>
-#include "PropertyEditorAPI.h"
-#endif
+
+#include <QWidget>
+
 class QCheckBox;
 
 namespace AzToolsFramework
@@ -77,7 +76,10 @@ namespace AzToolsFramework
         QWidget* GetLastInTabOrder(PropertyCheckBoxCtrl* widget) override { return widget->GetLastInTabOrder(); }
         void UpdateWidgetInternalTabbing(PropertyCheckBoxCtrl* widget) override { widget->UpdateTabOrder(); }
 
-        void ConsumeAttribute(PropertyCheckBoxCtrl* widget, AZ::u32 attrib, PropertyAttributeReader* attrValue, const char* debugName) override;
+        void ConsumeAttribute(PropertyCheckBoxCtrl* widget, AZ::u32 attrib, PropertyAttributeReader* attrValue, const char* debugName) override
+        {
+            ConsumeAttributeCommon(widget, attrib, attrValue, debugName);
+        }
     };
 
     class AZTF_API BoolPropertyCheckBoxHandler

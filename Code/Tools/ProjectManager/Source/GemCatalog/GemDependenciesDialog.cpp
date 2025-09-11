@@ -27,7 +27,7 @@ namespace O3DE::ProjectManager
 
         QVBoxLayout* layout = new QVBoxLayout();
         // layout margin/alignment cannot be set with qss
-        layout->setMargin(15);
+        layout->setContentsMargins(15, 15, 15, 15);
         layout->setAlignment(Qt::AlignTop);
         setLayout(layout);
 
@@ -45,7 +45,7 @@ namespace O3DE::ProjectManager
             if (GemModel::WasPreviouslyAddedDependency(gem))
             {
                 QCheckBox* checkBox = new QCheckBox(GemModel::GetName(gem));
-                connect(checkBox, &QCheckBox::stateChanged, this,
+                connect(checkBox, &QCheckBox::checkStateChanged, this,
                     [=](int state)
                     {
                         GemModel::SetIsAdded(*gemModel, gem, /*isAdded=*/state == Qt::Checked);

@@ -66,7 +66,7 @@ namespace
         binaryDir.setNameFilters(QStringList() << applicationBase);
         binaryDir.setFilter(QDir::Files);
         // iterate all matching
-        foreach(QString tempFile, binaryDir.entryList())
+        for (QString tempFile : binaryDir.entryList())
         {
             binaryDir.remove(tempFile);
         }
@@ -542,8 +542,6 @@ bool GUIApplicationManager::PostActivate()
 
 void GUIApplicationManager::CreateQtApplication()
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 

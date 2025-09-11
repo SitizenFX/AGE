@@ -12,13 +12,16 @@
 #pragma once
 
 #include "ErrorReport.h"
+#include "IValidator.h"
+
+#include <AzCore/Math/Guid.h>
+
+#include <QWidget>
 
 namespace Ui {
     class CErrorReportDialog;
 }
 class CErrorReportTableModel;
-
-#include <QWidget>
 
 class CErrorReportDialog
     : public QWidget

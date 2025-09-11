@@ -9,6 +9,8 @@
 #pragma once
 #include <QDialog>
 
+#include <AzCore/std/containers/list.h>
+
 #include "Include/EditorCoreAPI.h"
 
 namespace Ui 

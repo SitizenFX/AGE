@@ -11,7 +11,6 @@
 #include <AzCore/std/functional.h>
 
 #include <QWidget>
-#endif
 
 class PresetButton;
 

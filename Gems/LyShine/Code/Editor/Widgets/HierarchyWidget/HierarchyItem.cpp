@@ -511,4 +511,3 @@ float HierarchyItem::GetNonSnappedZRotation()
 {
     return m_nonSnappedZRotation;
 }
-

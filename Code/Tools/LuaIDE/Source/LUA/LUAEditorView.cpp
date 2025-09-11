@@ -850,8 +850,11 @@ namespace LUAEditor
 
         if (operation.m_impl->m_isRegularExpression)
         {
-            QRegExp regEx;
-            regEx.setCaseSensitivity(operation.m_impl->m_isCaseSensitiveSearch ? Qt::CaseSensitivity::CaseSensitive : Qt::CaseSensitivity::CaseInsensitive);
+            QRegularExpression regEx;
+            if (!operation.m_impl->m_isCaseSensitiveSearch)
+            {
+                regEx.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
+            }
             regEx.setPattern(operation.m_impl->m_searchString);
             operation.m_impl->m_cursor = m_gui->m_luaTextEdit->document()->find(regEx, operation.m_impl->m_cursor, static_cast<QTextDocument::FindFlag>(flags));
             if (!operation && operation.m_impl->m_wrap)
@@ -1020,7 +1023,7 @@ namespace LUAEditor
             newText.append(block.text());
             newText.append("\n");
         });
-        currText.remove(currText.count() - 1, 1);
+        currText.remove(currText.length() - 1, 1);
 
         if (startLine == 0)
         {

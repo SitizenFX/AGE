@@ -83,4 +83,3 @@ void PreviewToolbar::UpdatePreviewCanvasScale(float scale)
 {
     m_canvasScaleLabel->setText(QString("Canvas scale: %1%").arg(QString::number(scale * 100.0f)));
 }
-

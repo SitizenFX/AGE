@@ -7,16 +7,13 @@
  */
 
 
-#ifndef CRYINCLUDE_EDITOR_SETTINGSMANAGERDIALOG_H
-#define CRYINCLUDE_EDITOR_SETTINGSMANAGERDIALOG_H
-
 #pragma once
 
-#if !defined(Q_MOC_RUN)
-#include <QDialog>
-#include <QScopedPointer>
-#endif
+#include <AzCore/Math/Guid.h>
 
+#include <QDialog>
+#include <QString>
+#include <QStringList>
 
 class CSettingsManager;
 
@@ -51,7 +48,5 @@ protected:
 private:
     QString m_importFileStr;
 
-    QScopedPointer<Ui::SettingsManagerDialog> ui;
+    Ui::SettingsManagerDialog* ui;
 };
-
-#endif // CRYINCLUDE_EDITOR_SETTINGSMANAGERDIALOG_H

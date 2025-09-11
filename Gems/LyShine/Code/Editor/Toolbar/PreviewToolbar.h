@@ -11,7 +11,6 @@
 #include <QToolBar>
 
 #include "CanvasSizeToolbarSection.h"
-#endif
 
 class EditorWindow;
 class QResizeEvent;

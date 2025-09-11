@@ -256,7 +256,7 @@ namespace O3DE::ProjectManager
 
             if (auto nameFoundIter = m_nameToIndexMap.find(gemName); nameFoundIter != m_nameToIndexMap.end())
             {
-                const QModelIndex modelIndex = nameFoundIter.value();
+                const QModelIndex modelIndex = nameFoundIter->second;
                 QStandardItem* gemItem = itemFromIndex(modelIndex);
                 AZ_Assert(gemItem, "Failed to retrieve enabled gem item from model index");
 
@@ -341,15 +341,15 @@ namespace O3DE::ProjectManager
         {
             if (!version.isEmpty() || !path.isEmpty())
             {
-                const bool removedAllVersions = RemoveGemInfoVersion(itemFromIndex(nameFind.value()), version, path);
+                const bool removedAllVersions = RemoveGemInfoVersion(itemFromIndex(nameFind->second), version, path);
                 if (removedAllVersions)
                 {
-                    removeRow(nameFind->row());
+                    removeRow(nameFind->second.row());
                 }
             }
             else
             {
-                removeRow(nameFind->row());
+                removeRow(nameFind->second.row());
             }
         }
     }
@@ -367,25 +367,25 @@ namespace O3DE::ProjectManager
 
         for (auto iter = m_nameToIndexMap.begin(); iter != m_nameToIndexMap.end(); ++iter)
         {
-            const QString& key = iter.key();
-            const QModelIndex modelIndex = iter.value();
-            QSet<QPersistentModelIndex> dependencies;
+            const QString& key = iter->first;
+            const QModelIndex modelIndex = iter->second;
+            AZStd::unordered_set<QPersistentModelIndex> dependencies;
             GetAllDependingGems(modelIndex, dependencies);
-            if (!dependencies.isEmpty())
+            if (!dependencies.empty())
             {
-                m_gemDependencyMap.insert(key, dependencies);
+                m_gemDependencyMap.insert({ key, dependencies });
             }
         }
 
         for (auto iter = m_gemDependencyMap.begin(); iter != m_gemDependencyMap.end(); ++iter)
         {
-            const QString& dependant = iter.key();
-            for (const QModelIndex& dependency : iter.value())
+            const QString& dependant = iter->first;
+            for (const QPersistentModelIndex& dependency : iter->second)
             {
                 const QString& dependencyName = dependency.data(RoleName).toString();
                 if (!m_gemReverseDependencyMap.contains(dependencyName))
                 {
-                    m_gemReverseDependencyMap.insert(dependencyName, QSet<QPersistentModelIndex>());
+                    m_gemReverseDependencyMap.insert({ dependencyName, {} });
                 }
 
                 m_gemReverseDependencyMap[dependencyName].insert(m_nameToIndexMap[dependant]);
@@ -466,7 +466,7 @@ namespace O3DE::ProjectManager
         const auto iterator = m_nameToIndexMap.find(nameString);
         if (iterator != m_nameToIndexMap.end())
         {
-            return iterator.value();
+            return iterator->second;
         }
 
         return {};
@@ -487,7 +487,7 @@ namespace O3DE::ProjectManager
         }
     }
 
-    void GemModel::GetAllDependingGems(const QModelIndex& modelIndex, QSet<QPersistentModelIndex>& inOutGems)
+    void GemModel::GetAllDependingGems(const QModelIndex& modelIndex, AZStd::unordered_set<QPersistentModelIndex>& inOutGems)
     {
         QStringList dependencies = GetDependingGems(modelIndex);
         for (const QString& dependency : dependencies)
@@ -616,7 +616,7 @@ namespace O3DE::ProjectManager
     bool GemModel::HasDependentGems(const QModelIndex& modelIndex) const
     {
         auto dependentGems = GatherDependentGems(modelIndex);
-        for (const QModelIndex& dependency : dependentGems)
+        for (const QPersistentModelIndex& dependency : dependentGems)
         {
             if (IsAdded(dependency))
             {
@@ -638,7 +638,7 @@ namespace O3DE::ProjectManager
 
         if (isAdded)
         {
-            for (const QModelIndex& dependency : dependencies)
+            for (const QPersistentModelIndex& dependency : dependencies)
             {
                 if (!IsAddedDependency(dependency))
                 {
@@ -702,7 +702,7 @@ namespace O3DE::ProjectManager
         {
             QModelIndex modelIndex = index(i, 0, parent);
             const QString& gemName = GetName(modelIndex);
-            m_nameToIndexMap.remove(gemName);
+            m_nameToIndexMap.erase(gemName);
 
             if (GetSelectionModel()->isRowSelected(i))
             {
@@ -713,7 +713,7 @@ namespace O3DE::ProjectManager
         // Select a valid row if currently selected row was removed
         if (selectedRowRemoved)
         {
-            for (const QModelIndex& index : m_nameToIndexMap)
+            for (const auto& [name, index] : m_nameToIndexMap)
             {
                 if (index.isValid())
                 {
@@ -739,7 +739,7 @@ namespace O3DE::ProjectManager
             GemModel* gemModel = GetSourceModel(&model);
             AZ_Assert(gemModel, "Failed to obtain GemModel");
             auto dependencies = gemModel->GatherGemDependencies(modelIndex);
-            for (const QModelIndex& dependency : dependencies)
+            for (const QPersistentModelIndex& dependency : dependencies)
             {
                 SetWasPreviouslyAddedDependency(*gemModel, dependency, true);
             }
@@ -959,10 +959,11 @@ namespace O3DE::ProjectManager
     QVector<QPersistentModelIndex> GemModel::GatherGemDependencies(const QPersistentModelIndex& modelIndex) const 
     {
         QVector<QPersistentModelIndex> result;
-        const QString& gemName = modelIndex.data(RoleName).toString();
+        const QString gemName = modelIndex.data(RoleName).toString();
         if (m_gemDependencyMap.contains(gemName))
         {
-            for (const auto& dependency : m_gemDependencyMap[gemName])
+            const auto& gems = m_gemDependencyMap.at(gemName);
+            for (const auto& dependency : gems)
             {
                 result.push_back(dependency);
             }
@@ -973,10 +974,11 @@ namespace O3DE::ProjectManager
     QVector<QPersistentModelIndex> GemModel::GatherDependentGems(const QPersistentModelIndex& modelIndex, bool addedOnly) const
     {
         QVector<QPersistentModelIndex> result;
-        const QString& gemName = modelIndex.data(RoleName).toString();
+        const QString gemName = modelIndex.data(RoleName).toString();
         if (m_gemReverseDependencyMap.contains(gemName))
         {
-            for (const auto& dependency : m_gemReverseDependencyMap[gemName])
+            const auto& gems = m_gemReverseDependencyMap.at(gemName);
+            for (const auto& dependency : gems)
             {
                 if (!addedOnly || GemModel::IsAdded(dependency))
                 {

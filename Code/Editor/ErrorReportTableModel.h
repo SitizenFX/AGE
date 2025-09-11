@@ -65,6 +65,4 @@ private:
     QVector<QIcon> m_imageList;
 };
 
-Q_DECLARE_METATYPE(const CErrorRecord*)
-
 #endif

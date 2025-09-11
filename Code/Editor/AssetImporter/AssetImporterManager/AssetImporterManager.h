@@ -10,7 +10,7 @@
 #include <QMainWindow>
 #include <AssetImporter/UI/SelectDestinationDialog.h>
 
-class QStringList;
+
 class QFile;
 class QFileDialog;
 

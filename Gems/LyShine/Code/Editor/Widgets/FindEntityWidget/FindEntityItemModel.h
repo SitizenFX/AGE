@@ -17,7 +17,6 @@
 #include <AzCore/std/string/string.h>
 
 #include <QAbstractItemModel>
-#endif
 
 //! Model for items in the "Find Entity" tree view.
 //! Each item represents an Entity.

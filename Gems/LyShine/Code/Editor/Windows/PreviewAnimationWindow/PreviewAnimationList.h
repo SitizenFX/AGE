@@ -10,7 +10,6 @@
 #include <AzCore/Component/EntityId.h>
 
 #include <QMainWindow>
-#endif
 
 class EditorWindow;
 class QIcon;

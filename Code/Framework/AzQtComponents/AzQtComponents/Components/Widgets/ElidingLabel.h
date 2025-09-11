@@ -121,7 +121,7 @@ namespace AzQtComponents
         void requestElide(bool updateGeometry);
 
         QString m_filterString;
-        QRegExp m_filterRegex;
+        QRegularExpression m_filterRegex;
 
     private:
         void elide();
