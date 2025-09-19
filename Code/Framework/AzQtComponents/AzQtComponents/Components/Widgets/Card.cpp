@@ -22,6 +22,7 @@
 #include <QStyle>
 #include <QPoint>
 #include <QSettings>
+#include <QStyleOption>
 
 namespace AzQtComponents
 {
@@ -472,4 +473,3 @@ namespace AzQtComponents
     }
 } // namespace AzQtComponents
 
-#include "Components/Widgets/moc_Card.cpp"

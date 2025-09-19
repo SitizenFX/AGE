@@ -1961,4 +1961,3 @@ namespace AzToolsFramework
     }
 }
 
-#include "UI/PropertyEditor/moc_PropertyRowWidget.cpp"

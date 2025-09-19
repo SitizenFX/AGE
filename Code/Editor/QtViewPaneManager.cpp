@@ -1697,4 +1697,3 @@ bool QtViewPaneManager::IsPaneRegistered(const QString& name) const
     return it != m_registeredPanes.end();
 }
 
-#include <moc_QtViewPaneManager.cpp>

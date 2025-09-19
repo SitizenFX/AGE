@@ -1836,4 +1836,3 @@ void CUiAnimViewDialog::EndUndoTransaction()
     m_bDoingUndoOperation = false;
 }
 
-#include <Animation/moc_UiAnimViewDialog.cpp>

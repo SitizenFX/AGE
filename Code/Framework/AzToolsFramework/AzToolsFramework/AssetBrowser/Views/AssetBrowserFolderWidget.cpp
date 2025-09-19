@@ -141,4 +141,3 @@ namespace AzToolsFramework
    }
 }
 
-#include "AssetBrowser/Views/moc_AssetBrowserFolderWidget.cpp"

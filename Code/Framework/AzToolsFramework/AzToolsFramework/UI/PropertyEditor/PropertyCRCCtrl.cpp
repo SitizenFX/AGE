@@ -220,4 +220,3 @@ namespace AzToolsFramework
     }
 }
 
-#include "UI/PropertyEditor/moc_PropertyCRCCtrl.cpp"

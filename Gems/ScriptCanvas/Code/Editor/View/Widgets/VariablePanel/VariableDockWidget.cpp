@@ -1018,6 +1018,4 @@ namespace ScriptCanvasEditor
 
         m_usedElements.clear();
     }
-
-#include <Editor/View/Widgets/VariablePanel/moc_VariableDockWidget.cpp>
 }

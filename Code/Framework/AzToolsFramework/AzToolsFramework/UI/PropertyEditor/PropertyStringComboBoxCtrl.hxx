@@ -8,19 +8,17 @@
 
 #pragma once
 
+#include "PropertyEditorAPI.h"
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
-
-#if !defined(Q_MOC_RUN)
 #include <AzCore/base.h>
 #include <AzCore/Memory/SystemAllocator.h>
-#include "PropertyEditorAPI.h"
 #include <UI/PropertyEditor/GenericComboBoxCtrl.h>
 
 #include <QWidget>
 #include <QToolButton>
 #include <QComboBox>
-#endif
+#include <QObject>
 
 namespace AzToolsFramework
 {

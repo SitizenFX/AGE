@@ -1419,4 +1419,3 @@ namespace LUAEditor
     }
 }//namespace LUAEditor
 
-#include <Source/LUA/moc_LUAEditorFindDialog.cpp>

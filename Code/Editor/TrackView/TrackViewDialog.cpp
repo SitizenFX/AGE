@@ -2262,5 +2262,3 @@ void CTrackViewDialog::AfterEntitySelectionChanged(
 {
     UpdateActions();
 }
-
-#include <TrackView/moc_TrackViewDialog.cpp>
