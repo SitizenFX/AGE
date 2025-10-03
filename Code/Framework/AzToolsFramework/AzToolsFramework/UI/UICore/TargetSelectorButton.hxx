@@ -10,13 +10,12 @@
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/base.h>
 #include <AzCore/Memory/SystemAllocator.h>
 #include <AzFramework/Network/IRemoteTools.h>
-#include <QtWidgets/QPushButton>
-#include <qwidgetaction.h>
-#endif
+
+#include <QPushButton>
+#include <QWidgetAction>
 
 
 namespace AzToolsFramework

@@ -10,8 +10,7 @@
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 
-#if !defined(Q_MOC_RUN)
-#include <QtWidgets/QWidget>
+#include <QWidget>
 
 #include <AzCore/Math/Uuid.h>
 
@@ -22,7 +21,6 @@
 #include <AzToolsFramework/UI/PropertyEditor/PropertyEditorAPI.h>
 #include <QPushButton>
 #include <QToolButton>
-#endif
 
 class QComboBox;
 class QLabel;

@@ -7,7 +7,6 @@
  */
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <QAbstractItemModel>
 #include <QIcon>
 #include <QSortFilterProxyModel>
@@ -22,7 +21,6 @@
 
 #include <ScriptCanvas/Debugger/ValidationEvents/ValidationEvent.h>
 #include <ScriptCanvas/Debugger/StatusBus.h>
-#endif
 
 namespace Ui
 {

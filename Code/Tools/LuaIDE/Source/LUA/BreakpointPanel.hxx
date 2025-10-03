@@ -8,19 +8,17 @@
 
 #ifndef BREAKPOINTS_VIEW_H
 #define BREAKPOINTS_VIEW_H
+#pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/Memory/SystemAllocator.h>
 #include <AzCore/base.h>
 
-#include <QtCore/QObject>
-#include <QtWidgets/QTableWidget>
-#include <QtWidgets/QWidget>
+#include <QObject>
+#include <QTableWidget>
+#include <QWidget>
 
 #include "LUABreakpointTrackerMessages.h"
-#endif
 
-#pragma once
 
 class DHBreakpointsWidget
     : public QTableWidget

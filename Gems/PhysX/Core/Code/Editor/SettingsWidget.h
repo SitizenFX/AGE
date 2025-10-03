@@ -8,12 +8,10 @@
 
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <AzToolsFramework/UI/PropertyEditor/PropertyEditorAPI_Internals.h>
 #include <AzFramework/Physics/Configuration/SceneConfiguration.h>
 #include <QWidget>
 #include <PhysX/Configuration/PhysXConfiguration.h>
-#endif
 
 namespace PhysX
 {

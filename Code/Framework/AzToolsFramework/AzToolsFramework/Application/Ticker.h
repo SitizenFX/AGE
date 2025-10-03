@@ -7,13 +7,11 @@
  */
 #pragma once
 
-#if !defined(Q_MOC_RUN)
-#include <QtCore/QObject>
-#include <QtCore/QTimer>
-#include <QtCore/QThread>
+#include <QObject>
+#include <QTimer>
+#include <QThread>
 
 #include <AzCore/Memory/SystemAllocator.h>
-#endif
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 

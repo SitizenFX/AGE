@@ -8,10 +8,9 @@
 
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <Editor/LineEditValidatable.h>
+
 #include <QDialog>
-#endif
 
 QT_FORWARD_DECLARE_CLASS(QDialogButtonBox)
 

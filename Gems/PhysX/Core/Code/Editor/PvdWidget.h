@@ -7,11 +7,9 @@
  *
  */
 
-#if !defined(Q_MOC_RUN)
 #include <AzToolsFramework/UI/PropertyEditor/PropertyEditorAPI_Internals.h>
 #include <QWidget>
 #include <PhysX/Configuration/PhysXConfiguration.h>
-#endif
 
 #pragma once
 

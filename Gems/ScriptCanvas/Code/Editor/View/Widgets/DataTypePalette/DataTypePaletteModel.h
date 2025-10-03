@@ -7,7 +7,6 @@
  */
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
 #include <QTableView>
@@ -15,7 +14,6 @@
 #include <AzCore/Memory/SystemAllocator.h>
 
 #include <ScriptCanvas/Data/Data.h>
-#endif
 
 namespace ScriptCanvasEditor
 {

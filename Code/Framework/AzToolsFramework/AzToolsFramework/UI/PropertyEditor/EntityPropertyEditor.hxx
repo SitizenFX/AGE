@@ -10,7 +10,6 @@
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/base.h>
 #include <AzCore/Memory/SystemAllocator.h>
 #include <AzCore/std/containers/vector.h>
@@ -40,9 +39,8 @@
 #include <AzQtComponents/Components/O3DEStylesheet.h>
 
 #include <QComboBox>
-#include <QtGui/QIcon>
-#include <QtWidgets/QWidget>
-#endif
+#include <QIcon>
+#include <QWidget>
 
 class QLabel;
 class QMenu;

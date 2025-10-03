@@ -10,10 +10,9 @@
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 
-#if !defined(Q_MOC_RUN)
-#include <QtWidgets/QCheckBox>
-#include <QtWidgets/QWidget>
-#include <QtGui/QIcon>
+#include <QCheckBox>
+#include <QWidget>
+#include <QIcon>
 
 #include <AzCore/Serialization/SerializeContext.h>
 #include <AzCore/Slice/SliceComponent.h>
@@ -21,7 +20,6 @@
 
 #include <AzToolsFramework/API/ToolsApplicationAPI.h>
 #include <AzToolsFramework/Slice/SliceUtilities.h>
-#endif
 
 class QTreeWidget;
 class QTreeWidgetItem;

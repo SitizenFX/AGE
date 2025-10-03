@@ -7,23 +7,24 @@
  */
 
 #pragma once
-#if !defined(Q_MOC_RUN)
+
+#include <Document/ParticleDocumentBus.h>
+#include <EffectorInspector.h>
+
 #include <QByteArray>
-#include <QWidget>
-#include <Window/ui_EmitterInspector.h>
-#include <Window/ParticleGraphicsScence.h>
-#include <QtWidgets/qtwidgetsglobal.h>
-#include <QtCore/qcoreapplication.h>
-#include <QtGui/qwindowdefs.h>
-#include <QtCore/qpoint.h>
-#include <QtCore/qsize.h>
-#include <QtGui/qcursor.h>
-#include <QtGui/qguiapplication.h>
+#include <QCursor>
 #include <QGraphicsItem>
 #include <QGraphicsProxyWidget>
-#include <EffectorInspector.h>
-#include <Document/ParticleDocumentBus.h>
-#endif
+#include <QGuiApplication>
+#include <QCoreApplication>
+#include <QPoint>
+#include <QSize>
+#include <qtwidgetsglobal.h>
+#include <QWidget>
+#include <qwindowdefs.h>
+
+#include <Window/ParticleGraphicsScence.h>
+#include <Window/ui_EmitterInspector.h>
 
 namespace Ui
 {

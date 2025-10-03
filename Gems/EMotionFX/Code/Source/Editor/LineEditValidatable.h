@@ -8,12 +8,11 @@
 
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/Memory/Memory.h>
 #include <AzCore/std/functional.h>
+
 #include <QLineEdit>
-#include <QRegExpValidator>
-#endif
+#include <QRegularExpressionValidator>
 
 namespace EMStudio
 {

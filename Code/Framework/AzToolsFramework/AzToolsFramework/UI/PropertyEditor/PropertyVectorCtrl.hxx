@@ -9,20 +9,21 @@
 #pragma once
 
 
+#include "PropertyEditorAPI.h"
+
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/base.h>
 #include <AzCore/Memory/SystemAllocator.h>
-#include <QtWidgets/QWidget>
+
+#include <QWidget>
+
 #include <AzCore/Math/Vector2.h>
 #include <AzCore/Math/Vector3.h>
 #include <AzCore/Math/Vector4.h>
 #include <AzCore/Math/Quaternion.h>
 
-#include "PropertyEditorAPI.h"
 #include <AzQtComponents/Components/Widgets/VectorInput.h>
-#endif
 
 class QLabel;
 class QLayout;

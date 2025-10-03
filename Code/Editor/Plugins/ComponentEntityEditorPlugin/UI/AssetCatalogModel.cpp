@@ -11,8 +11,8 @@
 #include "AssetCatalogModel.h"
 
 #include <IEditor.h>
-#include <qevent.h>
-#include <qmimedata.h>
+#include <QEvent>
+#include <QMimeData>
 
 #include <AzCore/Memory/Memory.h>
 #include <AzCore/RTTI/TypeInfo.h>

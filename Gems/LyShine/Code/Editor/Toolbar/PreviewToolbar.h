@@ -7,7 +7,6 @@
  */
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/std/smart_ptr/unique_ptr.h>
 #include <QToolBar>
 

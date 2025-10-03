@@ -11,7 +11,6 @@
 
 #include <AzToolsFramework/AzToolsFrameworkAPI.h>
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/base.h>
 #include <AzCore/Math/Vector3.h>
 #include <AzCore/Math/Color.h>
@@ -23,9 +22,8 @@
 // 4251: class needs to have dll-interface to be used by clients of class 
 // 4800: forcing value to bool 'true' or 'false' (performance warning)
 AZ_PUSH_DISABLE_WARNING(4251 4800, "-Wunknown-warning-option")
-#include <QtWidgets/QWidget>
+#include <QWidget>
 AZ_POP_DISABLE_WARNING
-#endif
 
 class QDoubleSpinBox;
 class QLineEdit;

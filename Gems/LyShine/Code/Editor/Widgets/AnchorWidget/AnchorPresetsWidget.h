@@ -7,9 +7,9 @@
  */
 #pragma once
 
-#if !defined(Q_MOC_RUN)
 #include <AzCore/std/containers/vector.h>
 #include <AzCore/std/functional.h>
+
 #include <QWidget>
 #endif
 
