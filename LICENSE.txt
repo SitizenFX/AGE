@@ -1,32 +1,57 @@
-OPEN 3D ENGINE LICENSING
-The default license for Open 3D Engine is the Apache License, Version 2.0 
-(see LICENSE_APACHE2.TXT); you may elect at your option to use the Open 3D 
-Engine under the MIT License (see LICENSE_MIT.TXT).  Contributions must be 
-made under both licenses.
- 
-THIRD PARTY COMPONENTS
-Open 3D Engine requires the use of (and in some cases makes available to you) 
-software and assets that have been developed by third parties and are subject 
-to separate license terms (such as code licensed under other open source 
-licenses).  It is your responsibility to comply with the applicable licenses. 
-Information on third party materials, and the applicable license terms, are 
-referenced in or included with the materials, such as in separate LICENSE.txt 
-files accompanying the materials.
+AGE – A Custom Fork of O3DE
+Copyright (c) 2025 SitizenFX (Elijah Siita / VidllQ Authority)
 
-Third party components with license-identification SPDX tags are logged in 
-the 3P repository at https://github.com/o3de/3p-package-source. For more 
-information on applying SPDX tags to O3DE components properly, see 
-https://www.o3de.org/docs/user-guide/build/packages/#o3de-package-structure.
- 
-Please note that certain materials are subject to "copyleft" licenses, which 
-require distribution of source code, including:
- 
-- Qt Toolkit https://github.com/qtproject/, which is subject to the GNU 
-Lesser General Public License version 3 (with certain exceptions). A copy of 
-the source code for Qt Toolkit may be found at 
-https://github.com/o3de/qt5/tree/5.15.1-o3de
- 
-- The AWS Python SDK uses Chardet https://chardet.github.io/, which is 
-subject to the GNU Lesser General Public License version 2.1. A copy of the 
-source code may be found at https://github.com/chardet/chardet.
- 
+Use of this source code is subject to the terms provided on the SitizenFX
+Collective website, currently version 1, available at:
+
+    https://sitizenfx.net/terms
+
+The following files, as long as they are marked as licensed under the
+O3DE Project license, are optionally available under the MIT License,
+as in the legacy notice below, as of the time of this writing:
+
+    engine/
+    scripts/
+    gems/
+    tools/
+    components/o3de-*/
+    vendor/*.lua
+    ./
+
+When using other components, please review the SitizenFX Proprietary License terms.
+
+This project is based on the original Open 3D Engine (O3DE) by the O3DE Foundation.
+The original permission notice is reproduced below for legacy components.
+Please note that this notice does NOT apply to any changes made in AGE since the fork.
+
+---
+
+Apache License 2.0 (for original O3DE components only)
+Copyright 2025 SitizenFX / Elijah Siita (VidllQ Authority)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+---
+
+SitizenFX Proprietary Notice
+All modifications, new modules, scripts, UI, tools, branding, and assets created
+since the fork are the exclusive property of SitizenFX / Elijah Siita (VidllQ Authority).
+Unauthorized use, redistribution, or tampering with proprietary components is prohibited
+and protected under international copyright law (including the Berne Convention).
+
+---
+
+Recommended SPDX headers for source files:
+
+// SPDX-License-Identifier: Apache-2.0
+// Copyright (c) 2025 SitizenFX / Elijah Siita (VidllQ Authority)
