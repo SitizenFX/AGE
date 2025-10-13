@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct
+# SitizenFX Community Code of Conduct
 
 ## Our Pledge
 
