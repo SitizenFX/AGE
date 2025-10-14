@@ -1,4 +1,4 @@
-sDccScriptingInterface (DCCsi)
+DccScriptingInterface (DCCsi)
 
 This location can be extended with additional 3rdParty Python Utils, Tools, Packages, etc.
 
