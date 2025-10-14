@@ -1,14 +1,23 @@
 AGE – A Custom Fork of O3DE
 Copyright (c) 2025 SitizenFX (Elijah Siita / VidllQ Authority)
 
-Use of this source code is subject to the terms provided on the SitizenFX
-Collective website, currently version 1, available at:
+Use of this source code is subject to the terms published by the SitizenFX
+Collective, version 1, available at:
 
     https://sitizenfx.net/terms
 
-The following files, as long as they are marked as licensed under the
-O3DE Project license, are optionally available under the MIT License,
-as in the legacy notice below, as of the time of this writing:
+This project is derived from the Open 3D Engine (O3DE),
+originally developed and maintained by the O3DE Foundation and its contributors.
+The original O3DE codebase is licensed under the Apache License, Version 2.0.
+A copy of that license can be found in the file LICENSE.Apache-2.0.
+
+Licensing Overview
+
+This repository contains both open and proprietary components.
+
+1. Open Components (O3DE Legacy and Unmodified Code)
+The following directories and files remain under open-source terms,
+as specified by the original O3DE license:
 
     engine/
     scripts/
@@ -18,20 +27,16 @@ as in the legacy notice below, as of the time of this writing:
     vendor/*.lua
     ./
 
-When using other components, please review the SitizenFX Proprietary License terms.
-
-This project is based on the original Open 3D Engine (O3DE) by the O3DE Foundation.
-The original permission notice is reproduced below for legacy components.
-Please note that this notice does NOT apply to any changes made since the fork.
-
----
+These files may, at the user’s option, be used under the MIT License
+(as reproduced below) for legacy compatibility.
 
 MIT License (for legacy O3DE components only)
-Copyright (c) 2021 Open 3D Engine Contributors
-Copyright (c) 2025 SitizenFX / Elijah Siita (VidllQ Authority)
+
+Copyright (c) 2021 Open 3D Engine Contributors  
+Copyright (c) 2025 SitizenFX (Elijah Siita / VidllQ Authority)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
+of this software and associated documentation files (the “Software”), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, subject to the following conditions:
@@ -39,17 +44,28 @@ copies of the Software, subject to the following conditions:
 The above copyright notice and this permission notice shall be included
 in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
----
+2. Proprietary Components (SitizenFX Additions)
 
-SitizenFX Proprietary Notice
-All modifications, new modules, scripts, UI, tools, and branding created
-since the fork are the exclusive property of SitizenFX / Elijah Siita (VidllQ Authority).
-Unauthorized use, redistribution, or tampering with proprietary components is prohibited
-and protected under international copyright law (including the Berne Convention).
+All modifications, new modules, scripts, UI, tools, branding, assets,
+and other content created after the fork date are proprietary to
+SitizenFX (Elijah Siita / VidllQ Authority).
+
+Unauthorized use, redistribution, decompilation, or tampering with
+proprietary components is strictly prohibited and protected under
+international copyright law (including the Berne Convention).
+
+The SitizenFX name, logo, and associated branding are trademarks of SitizenFX
+and may not be used without express written permission.
+
+Summary
+
+- Original O3DE code: open under Apache 2.0 or MIT (legacy)  
+- SitizenFX/AGE modifications: closed and proprietary  
+- Branding and marks: protected by trademark law
